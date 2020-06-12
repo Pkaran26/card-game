@@ -1,159 +1,263 @@
 const cards = [
   {
-    id: 'AH'
+    id: '2H',
+    type: 'H',
+    num: 2
   },
   {
-    id: '2H'
+    id: '3H',
+    type: 'H',
+    num: 3
   },
   {
-    id: '3H'
+    id: '4H',
+    type: 'H',
+    num: 4
   },
   {
-    id: '4H'
+    id: '5H',
+    type: 'H',
+    num: 5
   },
   {
-    id: '5H'
+    id: '6H',
+    type: 'H',
+    num: 6
   },
   {
-    id: '6H'
+    id: '7H',
+    type: 'H',
+    num: 7
   },
   {
-    id: '7H'
+    id: '8H',
+    type: 'H',
+    num: 8
   },
   {
-    id: '8H'
+    id: '9H',
+    type: 'H',
+    num: 9
   },
   {
-    id: '9H'
+    id: '10H',
+    type: 'H',
+    num: 10
   },
   {
-    id: '10H'
+    id: 'JH',
+    type: 'H',
+    num: 11
   },
   {
-    id: 'JH'
+    id: 'QH',
+    type: 'H',
+    num: 12
   },
   {
-    id: 'QH'
+    id: 'KH',
+    type: 'H',
+    num: 13
   },
   {
-    id: 'KH'
+    id: 'AH',
+    type: 'H',
+    num: 14
   },
   {
-    id: 'AC'
+    id: '2C',
+    type: 'C',
+    num: 2
   },
   {
-    id: '2C'
+    id: '3C',
+    type: 'C',
+    num: 3
   },
   {
-    id: '3C'
+    id: '4C',
+    type: 'C',
+    num: 4
   },
   {
-    id: '4C'
+    id: '5C',
+    type: 'C',
+    num: 5
   },
   {
-    id: '5C'
+    id: '6C',
+    type: 'C',
+    num: 6
   },
   {
-    id: '6C'
+    id: '7C',
+    type: 'C',
+    num: 7
   },
   {
-    id: '7C'
+    id: '8C',
+    type: 'C',
+    num: 8
   },
   {
-    id: '8C'
+    id: '9C',
+    type: 'C',
+    num: 9
   },
   {
-    id: '9C'
+    id: '10C',
+    type: 'C',
+    num: 10
   },
   {
-    id: '10C'
+    id: 'JC',
+    type: 'C',
+    num: 11
   },
   {
-    id: 'JC'
+    id: 'QC',
+    type: 'C',
+    num: 12
   },
   {
-    id: 'QC'
+    id: 'KC',
+    type: 'C',
+    num: 13
   },
   {
-    id: 'KC'
+    id: 'AC',
+    type: 'C',
+    num: 14
   },
   {
-    id: 'AD'
+    id: '2D',
+    type: 'D',
+    num: 2
   },
   {
-    id: '2D'
+    id: '3D',
+    type: 'D',
+    num: 3
   },
   {
-    id: '3D'
+    id: '4D',
+    type: 'D',
+    num: 4
   },
   {
-    id: '4D'
+    id: '5D',
+    type: 'D',
+    num: 5
   },
   {
-    id: '5D'
+    id: '6D',
+    type: 'D',
+    num: 6
   },
   {
-    id: '6D'
+    id: '7D',
+    type: 'D',
+    num: 7
   },
   {
-    id: '7D'
+    id: '8D',
+    type: 'D',
+    num: 8
   },
   {
-    id: '8D'
+    id: '9D',
+    type: 'D',
+    num: 9
   },
   {
-    id: '9D'
+    id: '10D',
+    type: 'D',
+    num: 10
   },
   {
-    id: '10D'
+    id: 'JD',
+    type: 'D',
+    num: 11
   },
   {
-    id: 'JD'
+    id: 'QD',
+    type: 'D',
+    num: 12
   },
   {
-    id: 'QD'
+    id: 'KD',
+    type: 'D',
+    num: 13
   },
   {
-    id: 'KD'
+    id: 'AD',
+    type: 'D',
+    num: 14
   },
   {
-    id: 'AS'
+    id: '2S',
+    type: 'S',
+    num: 2
   },
   {
-    id: '2S'
+    id: '3S',
+    type: 'S',
+    num: 3
   },
   {
-    id: '3S'
+    id: '4S',
+    type: 'S',
+    num: 4
   },
   {
-    id: '4S'
+    id: '5S',
+    type: 'S',
+    num: 5
   },
   {
-    id: '5S'
+    id: '6S',
+    type: 'S',
+    num: 6
   },
   {
-    id: '6S'
+    id: '7S',
+    type: 'S',
+    num: 7
   },
   {
-    id: '7S'
+    id: '8S',
+    type: 'S',
+    num: 8
   },
   {
-    id: '8S'
+    id: '9S',
+    type: 'S',
+    num: 9
   },
   {
-    id: '9S'
+    id: '10S',
+    type: 'S',
+    num: 10
   },
   {
-    id: '10S'
+    id: 'JS',
+    type: 'S',
+    num: 11
   },
   {
-    id: 'JS'
+    id: 'QS',
+    type: 'S',
+    num: 12
   },
   {
-    id: 'QS'
+    id: 'KS',
+    type: 'S',
+    num: 13
   },
   {
-    id: 'KS'
+    id: 'AS',
+    type: 'S',
+    num: 14
   }
 ]
 
