@@ -96,10 +96,12 @@ class App extends React.Component {
 
 const Board = ({ currentCards })=>(
   <div className="card bg-light">
-    <div className="card-body" style={{ display: 'flex' }} style={{ height: '400px' }}>
+    <div className="card-body" className="board">
       { currentCards && currentCards.length>0?
         currentCards.map((e, i)=>(
-          <img src={`/cards/${ e.id }.png`} style={{ width: '215px', margin: '15px' }} />
+          <div style={{ float: 'left' }}>
+            <img src={`/cards/${ e.id }.png`} className="boardImage" />
+          </div>
         ))
        : null}
     </div>
