@@ -108,7 +108,8 @@ const Board = ({ currentCards })=>(
 
 const Loader = ({ message })=>(
   <div className="loader">
-    <h1>{ message }</h1>
+    <img src={`/covers/aces.png`} style={{ width: '350px', margin: '15px' }} />
+    <h5 className="text-white">{ message }</h5>
   </div>
 )
 
