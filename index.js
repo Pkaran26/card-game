@@ -19,7 +19,7 @@ server.listen(process.env.PORT || 3005)
 
 let players = []
 const size = 4
-const currentCards = []
+let currentCards = []
 let round = 1
 let winners = []
 
@@ -49,20 +49,21 @@ io.sockets.on('connection', (socket)=>{
 
   })
 
-  socket.on('ON_MOVE', (card, player)=>{
-    io.to(`${player}`).emit('TOKEN', false)
+  socket.on('ON_MOVE', (card, playerCard)=>{
 
-    if(round == players){
+    if(round > size){
       currentCards = [card]
       round = 1
     }else{
       currentCards.push(card)
-      round++
     }
-    playersCard[i].splice(playersCard[i].indexOf(card), 1)
-
+    playersCard[i] = playerCard
+    for (var i = 0; i < size; i++) {
+      io.to(`${players[i].id}`).emit('CURRENT_CARDS', currentCards)
+    }
+    console.log('checkWinners() ', checkWinners());
     if(checkWinners()){
-      moveToken(++index)
+      moveToken(round++)
     }
   })
 
