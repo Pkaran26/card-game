@@ -50,10 +50,9 @@ io.sockets.on('connection', (socket)=>{
   })
 
   socket.on('ON_MOVE', (card, playerCard)=>{
-
-    if(round > size){
+    if(round == size){
       currentCards = [card]
-      round = 1
+      round = 0
     }else{
       currentCards.push(card)
     }
@@ -68,6 +67,7 @@ io.sockets.on('connection', (socket)=>{
   })
 
   const moveToken = (index)=>{
+    index = index < 4? index : 0
     for (var i = index; i < size; i++) {
       if(playersCard[i].length>0){
         io.to(`${players[i].id}`).emit('TOKEN', true)

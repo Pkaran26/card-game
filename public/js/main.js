@@ -30,13 +30,14 @@ class App extends React.Component {
     })
 
     this.socket.on('TOKEN', (data)=>{
-      console.log(data)
+    //  console.log(data)
       this.setState({
         token: data
       })
     })
 
     this.socket.on('CURRENT_CARDS', (data)=>{
+  //    console.log(data);
       this.setState({
         currentCards: data
       })
@@ -53,7 +54,6 @@ class App extends React.Component {
       return true
     }
     const result = currentCards.filter((e, i)=>{
-      console.log(e.id, card.id);
       return e.id.charAt(1) == card.id.charAt(1) || e.id.charAt(2) == card.id.charAt(2) || e.id.charAt(1) == card.id.charAt(2) || e.id.charAt(2) == card.id.charAt(1)
     })
     return result.length>0? true: false
@@ -61,8 +61,9 @@ class App extends React.Component {
 
   dropCard = (e, i)=>{
     const { myCards, token } = this.state
-    console.log(token && this.verifyCard(e));
-   if(token && this.verifyCard(e)){
+    // console.log(token && this.verifyCard(e));
+    // && this.verifyCard(e)
+   if(token){
       myCards.splice(i, 1)
       this.setState({
         myCards,
