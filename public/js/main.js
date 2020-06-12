@@ -60,7 +60,7 @@ class App extends React.Component {
   }
 
   dropCard = (e, i)=>{
-    const { myCards, token } = this.state
+    const { id, myCards, token } = this.state
     // console.log(token && this.verifyCard(e));
     // && this.verifyCard(e)
    if(token){
@@ -69,7 +69,7 @@ class App extends React.Component {
         myCards,
         token: false
       })
-      this.socket.emit('ON_MOVE', e, myCards)
+      this.socket.emit('ON_MOVE', id, e, myCards)
    }
   }
 
@@ -100,7 +100,8 @@ const Board = ({ currentCards })=>(
       { currentCards && currentCards.length>0?
         currentCards.map((e, i)=>(
           <div style={{ float: 'left' }}>
-            <img src={`/cards/${ e.id }.png`} className="boardImage" />
+            { e.id }
+            <img src={`/cards/${ e.card.id }.png`} className="boardImage" />
           </div>
         ))
        : null}
