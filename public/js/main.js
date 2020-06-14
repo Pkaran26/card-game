@@ -100,7 +100,6 @@ const Board = ({ currentCards })=>(
       { currentCards && currentCards.length>0?
         currentCards.map((e, i)=>(
           <div style={{ float: 'left' }}>
-            { e.id }
             <img src={`/cards/${ e.card.id }.png`} className="boardImage" />
           </div>
         ))

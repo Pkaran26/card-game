@@ -19,6 +19,7 @@ server.listen(process.env.PORT || 3005)
 
 let players = []
 const size = 4
+let index = 0
 let currentCards = []
 let winners = []
 let playersCard = []
@@ -64,21 +65,20 @@ io.sockets.on('connection', (socket)=>{
     }
   }
 
-  const sendCards = (index, card, playerCard)=>{
+  const sendCards = (index, card, playerCard, call)=>{
     for (var i = 0; i < players.length; i++) {
       if(playersCard[i].includes(card)>-1){
         playersCard[i] = playerCard
         break;
       }
     }
-    console.log('index ', index);
+    console.log('index ', index, call);
     if(checkWinners()){
       moveToken(index)
     }
   }
 
   socket.on('ON_MOVE', (id, card, playerCard)=>{
-    let index = 0
     const payload = {
       id: id,
       card: card
@@ -88,26 +88,28 @@ io.sockets.on('connection', (socket)=>{
       currentCards.push(payload)
       index = checkBig()
       sendCurrentCards()
-      history.push(currentCards)
+      history = currentCards
       currentCards = []
       sendHistory()
-      sendCards(index, card, playerCard)
+      sendCards(index, card, playerCard, 'if')
       setTimeout(()=>{
         sendCurrentCards()
       }, 1000)
     }else{
       currentCards.push(payload)
       sendCurrentCards()
-      index = index == size? 0: ++index
-      sendCards(index, card, playerCard)
+      index = index == size-1? 0: ++index
+      sendCards(index, card, playerCard, 'else')
     }
-
   })
 
   const checkBig = ()=>{
     let big = 0
     for (var i = 1; i < currentCards.length; i++) {
-      if(currentCards[i-1].card.type == currentCards[i].card.type && currentCards[i-1].card.num < currentCards[i].card.num){
+      if(currentCards[i-1].card.type !== currentCards[i].card.type){
+        big = i
+        break
+      }else if(currentCards[i-1].card.type == currentCards[i].card.type && currentCards[i-1].card.num < currentCards[i].card.num){
         big = i
       }
     }
